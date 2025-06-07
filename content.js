@@ -4,6 +4,15 @@ styleElement.id = 'wallapop-customizer-styles';
 document.head.appendChild(styleElement);
 
 // CSS rules for different features
+const generalRules = `
+    .search-page-results_SearchPageResults__adsense__2K_5X {
+      display: none;
+    }
+
+    .search-page_SearchPage__topSky__VT7UG.w-100.d-flex.align-items-center.justify-content-center.my-3.mt-lg-4.overflow-hidden {
+      display: none !important;
+    }
+`;
 const cssRules = {
   hideReserved: `
     a:has([badge-type="reserved"]) {
@@ -19,7 +28,7 @@ const cssRules = {
 // Function to update the CSS based on settings
 function updateCSS(settings) {
   let css = '';
-  
+  css += generalRules;
   // Add CSS for each enabled feature
   if (settings.hideReserved) {
     css += cssRules.hideReserved;
